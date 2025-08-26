@@ -12,9 +12,17 @@
 
 #include "Fixed.hpp"
 
-//Constructeur
+//Constructeurs
 Fixed::Fixed(void): _value(0){
 	std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(int const param){
+
+}
+
+Fixed::Fixed(float const param){
+	
 }
 
 //Constructeur de copie
@@ -40,7 +48,7 @@ Fixed::~Fixed(void){
 
 //Fonctions Membres :
 
-int	Fixed::getRawBits(void) const{
+int		Fixed::getRawBits(void) const{
 	std::cout << "getRawbits member function called" << std::endl;
 	return (_value);
 }
@@ -49,4 +57,11 @@ void	Fixed::setRawBits(int const raw){
 	_value = raw;
 }
 
+float	Fixed::toFloat(void) const{
+
+}
+
+int		Fixed::toInt(void) const{
+
+}
 

@@ -22,12 +22,16 @@ class Fixed{
 		static int const	_nb_bits = 8;
 	public:
 		Fixed(void);
+		Fixed(int const param);
+		Fixed(float const param);
 		Fixed(const Fixed& other);
 		Fixed& operator=(const Fixed& other);
 		~Fixed(void);
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
+		float	toFloat(void) const;
+		int		toInt(void) const;
 };
 
 #endif
