@@ -75,42 +75,42 @@ std::ostream&	operator<<(std::ostream& os, const Fixed& obj){
 }
 
 //	Operateurs de comparaisons
-bool	operator>(Fixed& const f1, Fixed& const f2){
+bool	operator>(Fixed const f1, Fixed const f2){
 	if (f1.getRawBits() > f2.getRawBits())
 		return (true);
 	else
 		return (false);
 }
 
-bool	operator<(Fixed& const f1, Fixed& const f2){
+bool	operator<(Fixed const f1, Fixed const f2){
 	if (f1.getRawBits() < f2.getRawBits())
 		return (true);
 	else
 		return (false);
 }
 
-bool	operator>=(Fixed& const f1, Fixed& const f2){
+bool	operator>=(Fixed const f1, Fixed const f2){
 	if (f1.getRawBits() >= f2.getRawBits())
 		return (true);
 	else
 		return (false);
 }
 
-bool	operator<=(Fixed& const f1, Fixed& const f2){
+bool	operator<=(Fixed const f1, Fixed const f2){
 	if (f1.getRawBits() <= f2.getRawBits())
 		return (true);
 	else
 		return (false);
 }
 
-bool	operator==(Fixed& const f1, Fixed& const f2){
+bool	operator==(Fixed const f1, Fixed const f2){
 	if (f1.getRawBits() == f2.getRawBits())
 		return (true);
 	else
 		return (false);
 }
 
-bool	operator!=(Fixed& const f1, Fixed& const f2){
+bool	operator!=(Fixed const f1, Fixed const f2){
 	if (f1.getRawBits() != f2.getRawBits())
 		return (true);
 	else
@@ -118,7 +118,7 @@ bool	operator!=(Fixed& const f1, Fixed& const f2){
 }
 
 //	Operateurs arithmetiques
-Fixed	operator+(Fixed& const f1, Fixed& const f2){
+Fixed	operator+(Fixed const f1, Fixed const f2){
 	Fixed	result;
 	int		addition;
 
@@ -127,7 +127,7 @@ Fixed	operator+(Fixed& const f1, Fixed& const f2){
 	return(result);
 }
 
-Fixed	operator-(Fixed& const f1, Fixed& const f2){
+Fixed	operator-(Fixed const f1, Fixed const f2){
 	Fixed	result;
 	int		soustraction;
 
@@ -136,7 +136,7 @@ Fixed	operator-(Fixed& const f1, Fixed& const f2){
 	return(result);
 }
 
-Fixed	operator*(Fixed& const f1, Fixed& const f2){
+Fixed	operator*(Fixed const f1, Fixed const f2){
 	Fixed	result;
 	int		multi;
 
@@ -145,7 +145,7 @@ Fixed	operator*(Fixed& const f1, Fixed& const f2){
 	return(result);
 }
 
-Fixed	operator/(Fixed& const f1, Fixed& const f2){
+Fixed	operator/(Fixed const f1, Fixed const f2){
 	Fixed	result;
 	int		div;
 
