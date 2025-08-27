@@ -75,81 +75,81 @@ std::ostream&	operator<<(std::ostream& os, const Fixed& obj){
 }
 
 //	Operateurs de comparaisons
-bool	operator>(Fixed const f1, Fixed const f2){
-	if (f1.getRawBits() > f2.getRawBits())
+bool	Fixed::operator>(Fixed const rhs) const{
+	if (this->getRawBits() > rhs.getRawBits())
 		return (true);
 	else
 		return (false);
 }
 
-bool	operator<(Fixed const f1, Fixed const f2){
-	if (f1.getRawBits() < f2.getRawBits())
+bool	Fixed::operator<(Fixed const rhs) const{
+	if (this->getRawBits() < rhs.getRawBits())
 		return (true);
 	else
 		return (false);
 }
 
-bool	operator>=(Fixed const f1, Fixed const f2){
-	if (f1.getRawBits() >= f2.getRawBits())
+bool	Fixed::operator>=(Fixed const rhs) const{
+	if (this->getRawBits() >= rhs.getRawBits())
 		return (true);
 	else
 		return (false);
 }
 
-bool	operator<=(Fixed const f1, Fixed const f2){
-	if (f1.getRawBits() <= f2.getRawBits())
+bool	Fixed::operator<=(Fixed const rhs) const{
+	if (this->getRawBits() <= rhs.getRawBits())
 		return (true);
 	else
 		return (false);
 }
 
-bool	operator==(Fixed const f1, Fixed const f2){
-	if (f1.getRawBits() == f2.getRawBits())
+bool	Fixed::operator==(Fixed const rhs) const{
+	if (this->getRawBits() == rhs.getRawBits())
 		return (true);
 	else
 		return (false);
 }
 
-bool	operator!=(Fixed const f1, Fixed const f2){
-	if (f1.getRawBits() != f2.getRawBits())
+bool	Fixed::operator!=(Fixed const rhs) const{
+	if (this->getRawBits() != rhs.getRawBits())
 		return (true);
 	else
 		return (false);
 }
 
 //	Operateurs arithmetiques
-Fixed	operator+(Fixed const f1, Fixed const f2){
+Fixed	Fixed::operator+(Fixed const rhs) const{
 	Fixed	result;
 	int		addition;
 
-	addition = f1.getRawBits() + f2.getRawBits();
+	addition = this->getRawBits() + rhs.getRawBits();
 	result.setRawBits(addition);
 	return(result);
 }
 
-Fixed	operator-(Fixed const f1, Fixed const f2){
+Fixed	Fixed::operator-(Fixed const rhs) const{
 	Fixed	result;
 	int		soustraction;
 
-	soustraction = f1.getRawBits() - f2.getRawBits();
+	soustraction = this->getRawBits() - rhs.getRawBits();
 	result.setRawBits(soustraction);
 	return(result);
 }
 
-Fixed	operator*(Fixed const f1, Fixed const f2){
+Fixed	Fixed::operator*(Fixed const rhs) const{
 	Fixed	result;
 	int		multi;
 
-	multi = f1.getRawBits() * f2.getRawBits();
+	multi =(this->getRawBits() * rhs.getRawBits()) / 256;
 	result.setRawBits(multi);
 	return(result);
 }
 
-Fixed	operator/(Fixed const f1, Fixed const f2){
+Fixed	Fixed::operator/(Fixed const rhs) const{
 	Fixed	result;
 	int		div;
 
-	div = f1.getRawBits() * f2.getRawBits();
+	div = (this->getRawBits() * 256) / rhs.getRawBits();
 	result.setRawBits(div);
 	return(result);
 }

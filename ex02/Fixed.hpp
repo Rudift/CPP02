@@ -33,21 +33,23 @@ class Fixed{
 		void			setRawBits(int const raw);
 		float			toFloat(void) const;
 		int				toInt(void) const;
+
+		//	Operateurs de comparaisons
+		bool	operator>(Fixed const rhs) const;
+		bool	operator<(Fixed const rhs) const;
+		bool	operator>=(Fixed const rhs) const;
+		bool	operator<=(Fixed const rhs) const;
+		bool	operator==(Fixed const rhs) const;
+		bool	operator!=(Fixed const rhs) const;
+		//	Operateurs arithmetiques
+		Fixed	operator+(Fixed const rhs) const;
+		Fixed	operator-(Fixed const rhs) const;
+		Fixed	operator*(Fixed const rhs) const;
+		Fixed	operator/(Fixed const rhs) const;
+		// Operateurs d'incrementations et de decrementation
+		
 };
 
 //Surcharges d'operateurs
 std::ostream&	operator<<(std::ostream& os, const Fixed& obj);
-//	Operateurs de comparaisons
-bool	operator>(Fixed const f1, Fixed const f2);
-bool	operator<(Fixed const f1, Fixed const f2);
-bool	operator>=(Fixed const f1, Fixed const f2);
-bool	operator<=(Fixed const f1, Fixed const f2);
-bool	operator==(Fixed const f1, Fixed const f2);
-bool	operator!=(Fixed const f1, Fixed const f2);
-//	Operateurs arithmetiques
-Fixed	operator+(Fixed const f1, Fixed const f2);
-Fixed	operator-(Fixed const f1, Fixed const f2);
-Fixed	operator*(Fixed const f1, Fixed const f2);
-Fixed	operator/(Fixed const f1, Fixed const f2);
-
 #endif
