@@ -35,5 +35,19 @@ class Fixed{
 		int				toInt(void) const;
 };
 
+//Surcharges d'operateurs
 std::ostream&	operator<<(std::ostream& os, const Fixed& obj);
+//	Operateurs de comparaisons
+bool	operator>(Fixed& const f1, Fixed& const f2);
+bool	operator<(Fixed& const f1, Fixed& const f2);
+bool	operator>=(Fixed& const f1, Fixed& const f2);
+bool	operator<=(Fixed& const f1, Fixed& const f2);
+bool	operator==(Fixed& const f1, Fixed& const f2);
+bool	operator!=(Fixed& const f1, Fixed& const f2);
+//	Operateurs arithmetiques
+Fixed	operator+(Fixed& const f1, Fixed& const f2);
+Fixed	operator-(Fixed& const f1, Fixed& const f2);
+Fixed	operator*(Fixed& const f1, Fixed& const f2);
+Fixed	operator/(Fixed& const f1, Fixed& const f2);
+
 #endif

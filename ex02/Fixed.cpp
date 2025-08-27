@@ -68,10 +68,88 @@ int		Fixed::toInt(void) const{
 	return (_value >> _nb_bits);
 }
 
-//Surcharge d'operateur
+//Surcharges d'operateurs
 std::ostream&	operator<<(std::ostream& os, const Fixed& obj){
 	os << obj.toFloat();
 	return os;
 }
 
+//	Operateurs de comparaisons
+bool	operator>(Fixed& const f1, Fixed& const f2){
+	if (f1.getRawBits() > f2.getRawBits())
+		return (true);
+	else
+		return (false);
+}
 
+bool	operator<(Fixed& const f1, Fixed& const f2){
+	if (f1.getRawBits() < f2.getRawBits())
+		return (true);
+	else
+		return (false);
+}
+
+bool	operator>=(Fixed& const f1, Fixed& const f2){
+	if (f1.getRawBits() >= f2.getRawBits())
+		return (true);
+	else
+		return (false);
+}
+
+bool	operator<=(Fixed& const f1, Fixed& const f2){
+	if (f1.getRawBits() <= f2.getRawBits())
+		return (true);
+	else
+		return (false);
+}
+
+bool	operator==(Fixed& const f1, Fixed& const f2){
+	if (f1.getRawBits() == f2.getRawBits())
+		return (true);
+	else
+		return (false);
+}
+
+bool	operator!=(Fixed& const f1, Fixed& const f2){
+	if (f1.getRawBits() != f2.getRawBits())
+		return (true);
+	else
+		return (false);
+}
+
+//	Operateurs arithmetiques
+Fixed	operator+(Fixed& const f1, Fixed& const f2){
+	Fixed	result;
+	int		addition;
+
+	addition = f1.getRawBits() + f2.getRawBits();
+	result.setRawBits(addition);
+	return(result);
+}
+
+Fixed	operator-(Fixed& const f1, Fixed& const f2){
+	Fixed	result;
+	int		soustraction;
+
+	soustraction = f1.getRawBits() - f2.getRawBits();
+	result.setRawBits(soustraction);
+	return(result);
+}
+
+Fixed	operator*(Fixed& const f1, Fixed& const f2){
+	Fixed	result;
+	int		multi;
+
+	multi = f1.getRawBits() * f2.getRawBits();
+	result.setRawBits(multi);
+	return(result);
+}
+
+Fixed	operator/(Fixed& const f1, Fixed& const f2){
+	Fixed	result;
+	int		div;
+
+	div = f1.getRawBits() * f2.getRawBits();
+	result.setRawBits(div);
+	return(result);
+}
