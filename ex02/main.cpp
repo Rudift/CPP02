@@ -28,4 +28,6 @@ int	main(void){
 	std::cout << b++ << "++" << " = " << b << std::endl;
 	std::cout << "--" << b << " = " << --b << std::endl;
 	std::cout << b-- << "--" << " = " << b << std::endl;
+	std::cout << "Min = " << Fixed::min(a, b) << std::endl;
+	std::cout << "Max = " << Fixed::max(a, b) << std::endl;
 }
