@@ -46,8 +46,14 @@ class Fixed{
 		Fixed	operator-(Fixed const rhs) const;
 		Fixed	operator*(Fixed const rhs) const;
 		Fixed	operator/(Fixed const rhs) const;
-		// Operateurs d'incrementations et de decrementation
-		
+		//	Pre-incrementation
+		Fixed&	operator++();
+		//	Post_incrementation
+		Fixed	operator++(int);
+		//	Pre-decrementation
+		Fixed&	operator--();
+		//	Post_decrementation
+		Fixed	operator--(int);
 };
 
 //Surcharges d'operateurs

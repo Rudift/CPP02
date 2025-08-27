@@ -15,7 +15,7 @@
 int	main(void){
 	Fixed	res;
 	Fixed	const a( 10 );
-	Fixed	const b( 42.42f );
+	Fixed	 b( 42.42f );
 	res = a+b;
 	std::cout << a << " + " << b << " = " << res << std::endl;
 	res = a - b;
@@ -23,5 +23,9 @@ int	main(void){
 	res = a * b;
 	std::cout << a << " * " << b << " = " << res << std::endl; 
 	res = b / a;
-	std::cout << b << " / " << a << " = " << res << std::endl; 
+	std::cout << b << " / " << a << " = " << res << std::endl;
+	std::cout << "++" << b << " = " << ++b << std::endl;
+	std::cout << b++ << "++" << " = " << b << std::endl;
+	std::cout << "--" << b << " = " << --b << std::endl;
+	std::cout << b-- << "--" << " = " << b << std::endl;
 }

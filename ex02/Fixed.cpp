@@ -76,42 +76,42 @@ std::ostream&	operator<<(std::ostream& os, const Fixed& obj){
 
 //	Operateurs de comparaisons
 bool	Fixed::operator>(Fixed const rhs) const{
-	if (this->getRawBits() > rhs.getRawBits())
+	if (this->_value > rhs._value)
 		return (true);
 	else
 		return (false);
 }
 
 bool	Fixed::operator<(Fixed const rhs) const{
-	if (this->getRawBits() < rhs.getRawBits())
+	if (this->_value < rhs._value)
 		return (true);
 	else
 		return (false);
 }
 
 bool	Fixed::operator>=(Fixed const rhs) const{
-	if (this->getRawBits() >= rhs.getRawBits())
+	if (this->_value >= rhs._value)
 		return (true);
 	else
 		return (false);
 }
 
 bool	Fixed::operator<=(Fixed const rhs) const{
-	if (this->getRawBits() <= rhs.getRawBits())
+	if (this->_value <= rhs._value)
 		return (true);
 	else
 		return (false);
 }
 
 bool	Fixed::operator==(Fixed const rhs) const{
-	if (this->getRawBits() == rhs.getRawBits())
+	if (this->_value == rhs._value)
 		return (true);
 	else
 		return (false);
 }
 
 bool	Fixed::operator!=(Fixed const rhs) const{
-	if (this->getRawBits() != rhs.getRawBits())
+	if (this->_value != rhs._value)
 		return (true);
 	else
 		return (false);
@@ -120,36 +120,52 @@ bool	Fixed::operator!=(Fixed const rhs) const{
 //	Operateurs arithmetiques
 Fixed	Fixed::operator+(Fixed const rhs) const{
 	Fixed	result;
-	int		addition;
 
-	addition = this->getRawBits() + rhs.getRawBits();
-	result.setRawBits(addition);
+	result._value = this->_value + rhs._value;
 	return(result);
 }
 
 Fixed	Fixed::operator-(Fixed const rhs) const{
 	Fixed	result;
-	int		soustraction;
 
-	soustraction = this->getRawBits() - rhs.getRawBits();
-	result.setRawBits(soustraction);
+	result._value = this->_value - rhs._value;
 	return(result);
 }
 
 Fixed	Fixed::operator*(Fixed const rhs) const{
 	Fixed	result;
-	int		multi;
 
-	multi =(this->getRawBits() * rhs.getRawBits()) / 256;
-	result.setRawBits(multi);
+	result._value =(this->_value * rhs._value) / 256;
 	return(result);
 }
 
 Fixed	Fixed::operator/(Fixed const rhs) const{
 	Fixed	result;
-	int		div;
 
-	div = (this->getRawBits() * 256) / rhs.getRawBits();
-	result.setRawBits(div);
+	result._value = (this->_value * 256) / rhs._value;
 	return(result);
+}
+
+//Pre-incrementation
+Fixed&	Fixed::operator++(){
+	this->_value += 256;
+	return (*this);
+}
+//Post_incrementation
+Fixed	Fixed::operator++(int){
+	Fixed	temp(*this);
+	this->_value += 256;
+	return (temp);
+}
+
+//Pre-incrementation
+Fixed&	Fixed::operator--(){
+	this->_value -= 256;
+	return (*this);
+}
+//Post_incrementation
+Fixed	Fixed::operator--(int){
+	Fixed	temp(*this);
+	this->_value -= 256;
+	return (temp);
 }
