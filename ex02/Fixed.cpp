@@ -36,10 +36,8 @@ Fixed::Fixed(const Fixed& other){
 //Surcharge de l'operateur d'affectation
 Fixed& Fixed::operator=(const Fixed& other){
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (other._value){
+	if (this != &other) {  // Protection contre l'auto-affectation
 		_value = other._value;
-	}else{
-		_value = 0;
 	}
 	return (*this);
 }
@@ -76,45 +74,27 @@ std::ostream&	operator<<(std::ostream& os, const Fixed& obj){
 
 //	Operateurs de comparaisons
 bool	Fixed::operator>(Fixed const rhs) const{
-	if (this->_value > rhs._value)
-		return (true);
-	else
-		return (false);
+	return (this->_value > rhs._value);
 }
 
 bool	Fixed::operator<(Fixed const rhs) const{
-	if (this->_value < rhs._value)
-		return (true);
-	else
-		return (false);
+	return (this->_value < rhs._value);
 }
 
 bool	Fixed::operator>=(Fixed const rhs) const{
-	if (this->_value >= rhs._value)
-		return (true);
-	else
-		return (false);
+	return (this->_value >= rhs._value);
 }
 
 bool	Fixed::operator<=(Fixed const rhs) const{
-	if (this->_value <= rhs._value)
-		return (true);
-	else
-		return (false);
+	return (this->_value <= rhs._value);
 }
 
 bool	Fixed::operator==(Fixed const rhs) const{
-	if (this->_value == rhs._value)
-		return (true);
-	else
-		return (false);
+	return (this->_value == rhs._value);
 }
 
 bool	Fixed::operator!=(Fixed const rhs) const{
-	if (this->_value != rhs._value)
-		return (true);
-	else
-		return (false);
+	return (this->_value != rhs._value);
 }
 
 //	Operateurs arithmetiques
@@ -135,38 +115,38 @@ Fixed	Fixed::operator-(Fixed const rhs) const{
 Fixed	Fixed::operator*(Fixed const rhs) const{
 	Fixed	result;
 
-	result._value =(this->_value * rhs._value) / 256;
+	result._value =(this->_value * rhs._value) / (1 << _nb_bits);
 	return(result);
 }
 
 Fixed	Fixed::operator/(Fixed const rhs) const{
 	Fixed	result;
 
-	result._value = (this->_value * 256) / rhs._value;
+	result._value = (this->_value * (1 << _nb_bits)) / rhs._value;
 	return(result);
 }
 
 //Pre-incrementation
 Fixed&	Fixed::operator++(){
-	this->_value += 256;
+	this->_value += 1;
 	return (*this);
 }
 //Post_incrementation
 Fixed	Fixed::operator++(int){
 	Fixed	temp(*this);
-	this->_value += 256;
+	this->_value += 1;
 	return (temp);
 }
 
-//Pre-incrementation
+//Pre-decrementation
 Fixed&	Fixed::operator--(){
-	this->_value -= 256;
+	this->_value -= 1;
 	return (*this);
 }
-//Post_incrementation
+//Post_decrementation
 Fixed	Fixed::operator--(int){
 	Fixed	temp(*this);
-	this->_value -= 256;
+	this->_value -= 1;
 	return (temp);
 }
 
