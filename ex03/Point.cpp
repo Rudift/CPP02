@@ -12,10 +12,14 @@
 
 #include "Point.hpp"
 
-Point::Point(void):_x(0), _y(0){
-
+Point::Point(void){
+	this->_x.setRawBits(0);
+	this->_y.setRawBits(0);
 }
-
+Point::Point(float x, float y){
+	this->_x.setRawBits((int)(x * (256)));
+	this->_y.setRawBits((int)(y * (256)));
+}
 Point::~Point(void){
 
 }

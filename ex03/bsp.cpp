@@ -1,34 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.hpp                                          :+:      :+:    :+:   */
+/*   bsp.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdeliere <vdeliere@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-08-27 14:33:48 by vdeliere          #+#    #+#             */
-/*   Updated: 2025-08-27 14:33:48 by vdeliere         ###   ########.fr       */
+/*   Created: 2025-08-28 11:55:34 by vdeliere          #+#    #+#             */
+/*   Updated: 2025-08-28 11:55:34 by vdeliere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINT_HPP
-# define POINT_HPP
-#  include "Fixed.hpp"
+#include "Point.hpp"
 
-class Point
-{
-private:
-	Fixed	_x;
-	Fixed	_y;
-public:
-	//Constructeur
-	Point(void);
-	//Constructeur float
-	Point(float x, float y);
-	//Destructeur
-	~Point(void);
-	//Constructeur de copie
-	Point(const Point& other);
-	//Surcharge de l'operateur d'affectation
-};
-
-#endif
+bool	bsp(Point const a, Point const b, Point const c, Point const point){
+	
+}
