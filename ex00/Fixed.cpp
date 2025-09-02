@@ -20,16 +20,13 @@ Fixed::Fixed(void): _value(0){
 //Constructeur de copie
 Fixed::Fixed(const Fixed& other){
 	std::cout << "Copy constructor called" << std::endl;
-	_value = other._value;
+	_value = other.getRawBits();
 }
 
 //Surcharge de l'operateur d'affectation
 Fixed& Fixed::operator=(const Fixed& other){
-	if (other._value){
-		_value = other._value;
-	}else{
-		_value = 0;
-	}
+	std::cout << "Copy assignement operator called" << std::endl;
+		_value = other.getRawBits();
 	return (*this);
 }
 
@@ -46,6 +43,7 @@ int	Fixed::getRawBits(void) const{
 }
 
 void	Fixed::setRawBits(int const raw){
+	std::cout << "setRawbits member function called" << std::endl;
 	_value = raw;
 }
 
