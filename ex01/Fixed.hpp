@@ -19,7 +19,7 @@
 
 class Fixed{
 	private:
-		int	_value;
+		int					_value;
 		static int const	_nb_bits = 8;
 	public:
 		Fixed(void);

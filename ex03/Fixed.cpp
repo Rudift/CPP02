@@ -14,28 +14,28 @@
 
 //Constructeurs
 Fixed::Fixed(void): _value(0){
-	std::cout << "Default constructor called" << std::endl;
+	//std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(int const n){
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 	_value = n << _nb_bits;
 }
 
 Fixed::Fixed(float const f){
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 	_value = (int)roundf(f * (1 << _nb_bits));
 }
 
 //Constructeur de copie
 Fixed::Fixed(const Fixed& other){
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	_value = other._value;
 }
 
 //Surcharge de l'operateur d'affectation
 Fixed& Fixed::operator=(const Fixed& other){
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other) {  // Protection contre l'auto-affectation
 		_value = other._value;
 	}
@@ -44,13 +44,13 @@ Fixed& Fixed::operator=(const Fixed& other){
 
 //Destructeur
 Fixed::~Fixed(void){
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 //Fonctions Membres :
 
 int		Fixed::getRawBits(void) const{
-	std::cout << "getRawbits member function called" << std::endl;
+	// std::cout << "getRawbits member function called" << std::endl;
 	return (_value);
 }
 

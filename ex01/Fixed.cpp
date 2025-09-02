@@ -30,14 +30,14 @@ Fixed::Fixed(float const f){
 //Constructeur de copie
 Fixed::Fixed(const Fixed& other){
 	std::cout << "Copy constructor called" << std::endl;
-	_value = other._value;
+	_value = other.getRawBits();
 }
 
 //Surcharge de l'operateur d'affectation
 Fixed& Fixed::operator=(const Fixed& other){
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (other._value){
-		_value = other._value;
+		_value = other.getRawBits();
 	}else{
 		_value = 0;
 	}

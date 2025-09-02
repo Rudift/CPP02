@@ -29,6 +29,11 @@ public:
 	//Constructeur de copie
 	Point(const Point& other);
 	//Surcharge de l'operateur d'affectation
+	Point& operator=(const Point& other);
+	//Accesseurs
+	Fixed get_x(void) const;
+	Fixed get_y(void) const;
+
 };
 
 #endif

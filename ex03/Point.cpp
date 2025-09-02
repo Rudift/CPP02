@@ -12,21 +12,39 @@
 
 #include "Point.hpp"
 
-Point::Point(void){
-	this->_x.setRawBits(0);
-	this->_y.setRawBits(0);
+//Default constructor
+Point::Point(void) : _x(0), _y(0) {
+
 }
-Point::Point(float x, float y){
-	this->_x.setRawBits((int)(x * (256)));
-	this->_y.setRawBits((int)(y * (256)));
+
+//Float constructor
+Point::Point(float x, float y) : _x(x), _y(y) {
+
 }
+
+//Copy constructor
+Point::Point(const Point& other) : _x(other._x), _y(other._y) {
+
+}
+
+//Surcharge de l'operateur d'affectation
+Point&	Point::operator=(const Point& other){
+	if (this != &other) { 
+		this->_x = other._x;
+		this->_y = other._y;
+	}
+	return (*this);
+}
+
+//Destructor
 Point::~Point(void){
 
 }
 
-//Constructeur de copie
-Point::Point(const Point& other){
-	std::cout << "Copy constructor called" << std::endl;
-	_x = other._x;
-	_y = other._y;
+Fixed Point::get_x(void) const{
+	return(_x);
+}
+
+Fixed Point::get_y(void) const{
+	return(_y);
 }
